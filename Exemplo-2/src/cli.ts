@@ -74,17 +74,27 @@ if (command === "remove") {
     process.exit(1);
   }
 }
-if (command === "list") {
-  const items = await todo.getItems();
-
-  if (items.length === 0) {
-    console.log("Nenhum item na lista.");
-    process.exit(0);
+if (command === "listEspecifico") {
+  if (!process.argv[3]) {
+    console.error("Por favor, forneça um índice válido.");
+    process.exit(1);
   }
 
-  console.log("Lista de itens:");
-  items.forEach((item, index) => console.log(`${index}: ${item}`));
-  process.exit(0);
+  const index = parseInt(process.argv[3]);
+
+  if (isNaN(index)) {
+    console.error("Índice inválido.");
+    process.exit(1);
+  }
+
+  try {
+    const item = await todo.listEspecifico(index);
+    console.log(`Item no índice ${index}: ${item}`);
+    process.exit(0);
+  } catch (error: any) {
+    console.error(error.message);
+    process.exit(1);
+  }
 }
 
 

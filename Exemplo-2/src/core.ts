@@ -48,7 +48,7 @@ async function listEspecifico(index: number) {
  return list[index]
 }
 
-export default { addItem, getItems, updateItem, removeItem };
+export default { addItem, getItems, updateItem, removeItem, listEspecifico};
 
 
 // export class Item {
