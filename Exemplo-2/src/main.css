@@ -1,0 +1,86 @@
+/* Reset básico */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container do input */
+div {
+    margin-bottom: 15px;
+}
+
+/* Input */
+input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Botão adicionar */
+#action {
+    padding: 8px 12px;
+    margin-left: 5px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#action:hover {
+    background: #45a049;
+}
+
+/* Lista */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Item da lista */
+li {
+    background: white;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Texto */
+li span {
+    flex: 1;
+}
+
+/* Botões dentro do item */
+li button {
+    margin-left: 5px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Botão delete */
+#delete {
+    background: #e74c3c;
+    color: white;
+}
+
+#delete:hover {
+    background: #c0392b;
+}
+
+/* Botão edit */
+#edit {
+    background: #3498db;
+    color: white;
+}
+
+#edit:hover {
+    background: #2980b9;
+}
