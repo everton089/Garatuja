@@ -38,11 +38,47 @@ if (command === "list") {
 }
 
 if (command === "update") {
-  // ...
+  const indexStr = process.argv[4];
+  const newDescription = process.argv[5];
+  
+  if (!indexStr || isNaN(parseInt(indexStr)) || !newDescription) {
+    console.error("Por favor, forneça o índice e a nova descrição.");
+    process.exit(1);
+  }
+
+  const index = parseInt(indexStr);
+
+  try {
+    const newItem = new Item(newDescription);
+    await todo.updateItem(index, newItem);
+    console.log(`Item no índice ${index} atualizado com sucesso!`);
+    process.exit(0);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Erro desconhecido';
+    console.error(`Erro ao atualizar item: ${message}`);
+    process.exit(1);
+  }
 }
 
 if (command === "remove") {
-  // ...
+  const indexStr = process.argv[4];
+  
+  if (!indexStr || isNaN(parseInt(indexStr))) {
+    console.error("Por favor, forneça o índice do item a ser removido.");
+    process.exit(1);
+  }
+
+  const index = parseInt(indexStr);
+
+  try {
+    await todo.removeItem(index);
+    console.log(`Item no índice ${index} removido com sucesso!`);
+    process.exit(0);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Erro desconhecido';
+    console.error(`Erro ao remover item: ${message}`);
+    process.exit(1);
+  }
 }
 
 console.error("Comando desconhecido. Use 'add', 'list', 'update' ou 'remove'.");
